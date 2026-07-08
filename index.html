@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Population health measures for every US county — chronic disease, health behaviors, preventive care, disabilities, health status, and social needs. Free, no signup.">
+<title>Neighborhood Health Profile — County-level health measures from CDC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>Neighborhood Health Profile</h1>
+    <p class="subtitle">Population health measures for every US county. Data from CDC PLACES 2025.</p>
+  </div>
+</header>
+
+<main>
+  <!-- Search tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="name">County Name</button>
+    <button class="tab" data-tab="state">State Browse</button>
+    <button class="tab" data-tab="nearby">Near an Address</button>
+  </nav>
+
+  <!-- County name search -->
+  <section id="name-search" class="search-panel active">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Enter a county name…" autocomplete="off">
+      <div id="search-status"></div>
+    </div>
+    <div id="results" class="results"></div>
+  </section>
+
+  <!-- State browse -->
+  <section id="state-search" class="search-panel">
+    <div class="search-box">
+      <select id="state-select">
+        <option value="">Select a state…</option>
+      </select>
+    </div>
+    <div id="state-results" class="results"></div>
+  </section>
+
+  <!-- Proximity search -->
+  <section id="nearby-search" class="search-panel">
+    <div class="search-box">
+      <input type="text" id="addr-input" placeholder="Enter a US street address, city, or ZIP…">
+      <select id="radius-select">
+        <option value="25">25 miles</option>
+        <option value="10">10 miles</option>
+        <option value="50" selected>50 miles</option>
+        <option value="100">100 miles</option>
+      </select>
+      <button id="nearby-btn">Search</button>
+    </div>
+    <div id="nearby-results" class="results"></div>
+  </section>
+
+  <!-- County detail -->
+  <section id="detail" class="hidden">
+    <button id="back-btn">← Back to results</button>
+    <div id="detail-content"></div>
+  </section>
+
+  <!-- Intro / stats -->
+  <section id="intro">
+    <div class="intro-stats">
+      <div class="stat"><span class="stat-value" id="stat-counties">—</span> counties</div>
+      <div class="stat"><span class="stat-value" id="stat-states">—</span> states</div>
+      <div class="stat"><span class="stat-value" id="stat-measures">—</span> health measures</div>
+    </div>
+    <div class="intro-text">
+      <p>CDC PLACES models 40 population health measures for every US county using survey data from the Behavioral Risk Factor Surveillance System (BRFSS). These are <em>estimates</em>, not exact counts — but they're the best available neighborhood-level health data, and they're completely public.</p>
+      <p class="small">Data source: CDC PLACES 2025 release (BRFSS 2023). Model-based estimates have margins of error — individual values are shown with confidence intervals where available. This is not medical advice.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Data: <a href="https://www.cdc.gov/places/" target="_blank">CDC PLACES</a> (public domain). <a href="https://github.com/GreatTombProductions/neighborhood-health" target="_blank">Source code</a> (MIT). No tracking, no ads, no signup.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
